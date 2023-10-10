@@ -53,6 +53,7 @@ export {
   PhantomWallet,
   RainbowWallet,
   MetaMaskWallet,
+  PelagusWallet,
   TrustWallet,
   CoinbaseWallet,
   BloctoWallet,

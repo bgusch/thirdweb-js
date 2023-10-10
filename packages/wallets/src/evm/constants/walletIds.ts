@@ -6,6 +6,7 @@ export const walletIds = {
   magicLink: "magicLink",
   metamask: "metamask",
   paper: "paper",
+  pelagus: "pelagus",
   rainbow: "rainbowWallet",
   smartWallet: "smartWallet",
   safe: "safe",

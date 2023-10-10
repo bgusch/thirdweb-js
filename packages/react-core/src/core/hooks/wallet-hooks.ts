@@ -8,6 +8,7 @@ import type {
   LocalWallet,
   MagicLink,
   MetaMaskWallet,
+  PelagusWallet,
   PaperWallet,
   PhantomWallet,
   RainbowWallet,
@@ -23,6 +24,7 @@ export type WalletId = (typeof walletIds)[keyof typeof walletIds];
 
 type WalletIdToWalletTypeMap = {
   metamask: MetaMaskWallet;
+  pelagus: PelagusWallet;
   coinbase: CoinbaseWallet;
   rainbowWallet: RainbowWallet;
   blocto: BloctoWallet;

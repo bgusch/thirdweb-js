@@ -9,6 +9,7 @@ export { frameWallet } from "./wallet/wallets/frame/frameWallet";
 export { localWallet } from "./wallet/wallets/localWallet/localWallet";
 export { magicLink } from "./wallet/wallets/magic/magicLink";
 export { metamaskWallet } from "./wallet/wallets/metamask/metamaskWallet";
+export {pelagusWallet } from "./wallet/wallets/pelagus/pelagusWallet";
 export { paperWallet } from "./wallet/wallets/paper/paperWallet";
 export { phantomWallet } from "./wallet/wallets/phantom/phantomWallet";
 export { rainbowWallet } from "./wallet/wallets/rainbow/RainbowWallet";

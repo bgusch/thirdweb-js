@@ -99,6 +99,13 @@
       },
       "default": "./evm/wallets/gcp-kms/dist/thirdweb-dev-wallets-evm-wallets-gcp-kms.cjs.js"
     },
+    "./evm/wallets/pelagus": {
+      "module": {
+        "browser": "./evm/wallets/pelagus/dist/thirdweb-dev-wallets-evm-wallets-pelagus.browser.esm.js",
+        "default": "./evm/wallets/pelagus/dist/thirdweb-dev-wallets-evm-wallets-pelagus.esm.js"
+      },
+      "default": "./evm/wallets/pelagus/dist/thirdweb-dev-wallets-evm-wallets-pelagus.cjs.js"
+    },
     "./evm/wallets/phantom": {
       "module": {
         "browser": "./evm/wallets/phantom/dist/thirdweb-dev-wallets-evm-wallets-phantom.browser.esm.js",
@@ -238,6 +245,13 @@
         "default": "./evm/wallets/embedded-wallet/dist/thirdweb-dev-wallets-evm-wallets-embedded-wallet.esm.js"
       },
       "default": "./evm/wallets/embedded-wallet/dist/thirdweb-dev-wallets-evm-wallets-embedded-wallet.cjs.js"
+    },
+    "./evm/connectors/pelagus": {
+      "module": {
+        "browser": "./evm/connectors/pelagus/dist/thirdweb-dev-wallets-evm-connectors-pelagus.browser.esm.js",
+        "default": "./evm/connectors/pelagus/dist/thirdweb-dev-wallets-evm-connectors-pelagus.esm.js"
+      },
+      "default": "./evm/connectors/pelagus/dist/thirdweb-dev-wallets-evm-connectors-pelagus.cjs.js"
     },
     "./evm/connectors/phantom": {
       "module": {
