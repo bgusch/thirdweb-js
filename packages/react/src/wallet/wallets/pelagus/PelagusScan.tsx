@@ -1,11 +1,12 @@
-import { ScanScreen } from "../../ConnectWallet/screens/ScanScreen";
+import {ScanScreen} from "../../ConnectWallet/screens/ScanScreen";
 import {
   useCreateWalletInstance,
   useWalletContext,
 } from "@thirdweb-dev/react-core";
-import { useEffect, useRef, useState } from "react";
-import type { PelagusWallet } from "@thirdweb-dev/wallets";
-import type { WalletConfig } from "@thirdweb-dev/react-core";
+import {useEffect, useRef, useState} from "react";
+import type {PelagusWallet} from "@thirdweb-dev/wallets";
+import type {WalletConfig} from "@thirdweb-dev/react-core";
+import {useTWLocale} from "../../../evm/providers/locale-provider";
 
 export const PelagusScan: React.FC<{
   onBack: () => void;
@@ -13,10 +14,11 @@ export const PelagusScan: React.FC<{
   onConnected: () => void;
   walletConfig: WalletConfig<PelagusWallet>;
   hideBackButton: boolean;
-}> = ({ onBack, onConnected, onGetStarted, walletConfig, hideBackButton }) => {
+}> = ({onBack, onConnected, onGetStarted, walletConfig, hideBackButton}) => {
+  const locale = useTWLocale().wallets.pelagusWallet;
   const createInstance = useCreateWalletInstance();
   const [qrCodeUri, setQrCodeUri] = useState<string | undefined>();
-  const { setConnectedWallet, chainToConnect, setConnectionStatus } =
+  const {setConnectedWallet, chainToConnect, setConnectionStatus} =
     useWalletContext();
 
   const scanStarted = useRef(false);
@@ -56,6 +58,7 @@ export const PelagusScan: React.FC<{
       walletName={walletConfig.meta.name}
       walletIconURL={walletConfig.meta.iconURL}
       hideBackButton={hideBackButton}
-    />
+      getStartedLink={locale.getStartedLink}
+      qrScanInstruction={locale.scanScreen.instruction}/>
   );
 };

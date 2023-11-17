@@ -1,17 +1,17 @@
-import { ConnectUIProps, useConnect } from "@thirdweb-dev/react-core";
-import { ConnectingScreen } from "../../ConnectWallet/screens/ConnectingScreen";
-import { isMobile } from "../../../evm/utils/isMobile";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { PelagusScan } from "./PelagusScan";
-import { GetStartedScreen } from "../../ConnectWallet/screens/GetStartedScreen";
-import { PelagusWallet } from "@thirdweb-dev/wallets";
-import { wait } from "../../../utils/wait";
+import {ConnectUIProps, useConnect} from "@thirdweb-dev/react-core";
+import {ConnectingScreen} from "../../ConnectWallet/screens/ConnectingScreen";
+import {isMobile} from "../../../evm/utils/isMobile";
+import {useCallback, useEffect, useRef, useState} from "react";
+import {PelagusScan} from "./PelagusScan";
+import {GetStartedScreen} from "../../ConnectWallet/screens/GetStartedScreen";
+import {PelagusWallet} from "@thirdweb-dev/wallets";
+import {wait} from "../../../utils/wait";
+import {useTWLocale} from "../../../evm/providers/locale-provider";
 
 export const PelagusConnectUI = (props: ConnectUIProps<PelagusWallet>) => {
-  const [screen, setScreen] = useState<
-    "connecting" | "scanning" | "get-started"
-  >("connecting");
-  const { walletConfig, connected } = props;
+  const [screen, setScreen] = useState<"connecting" | "scanning" | "get-started">("connecting");
+  const locale = useTWLocale().wallets.pelagusWallet;
+  const {walletConfig, connected} = props;
   const connect = useConnect();
   const [errorConnecting, setErrorConnecting] = useState(false);
 
@@ -47,17 +47,17 @@ export const PelagusConnectUI = (props: ConnectUIProps<PelagusWallet>) => {
         connectToExtension();
       }
 
-      // if metamask is not injected
+      // if pelagus is not injected
       else {
         // on mobile, open metamask app link
-        if (isMobile()) {
-          // window.open(
-          //   `https://metamask.app.link/dapp/${window.location.toString()}`,
-          // );
-        } else {
-          // on desktop, show the metamask scan qr code
-          setScreen("scanning");
-        }
+        // if (isMobile()) {
+        //   // window.open(
+        //   //   `https://metamask.app.link/dapp/${window.location.toString()}`,
+        //   // );
+        // } else {
+        // on desktop, show the metamask scan qr code
+        setScreen("scanning");
+        // }
       }
     })();
   }, [connectToExtension, walletConfig]);
@@ -65,6 +65,13 @@ export const PelagusConnectUI = (props: ConnectUIProps<PelagusWallet>) => {
   if (screen === "connecting") {
     return (
       <ConnectingScreen
+        locale={{
+          getStartedLink: locale.getStartedLink,
+          instruction: locale.connectionScreen.instruction,
+          tryAgain: locale.connectionScreen.retry,
+          inProgress: locale.connectionScreen.inProgress,
+          failed: locale.connectionScreen.failed,
+        }}
         errorConnecting={errorConnecting}
         onGetStarted={() => {
           setScreen("get-started");
@@ -81,6 +88,9 @@ export const PelagusConnectUI = (props: ConnectUIProps<PelagusWallet>) => {
   if (screen === "get-started") {
     return (
       <GetStartedScreen
+        locale={{
+          scanToDownload: locale.getStartedScreen.instruction,
+        }}
         walletIconURL={walletConfig.meta.iconURL}
         walletName={walletConfig.meta.name}
         chromeExtensionLink={walletConfig.meta.urls?.chrome}

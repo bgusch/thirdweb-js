@@ -199,6 +199,7 @@ export function jaDefault(): ThirdwebLocale {
           resendCode: "確認コードを再送",
         },
       },
+      pelagusWallet: extensionAndQRScanScreens("Pelagus"),
       embeddedWallet: {
         signInWithGoogle: "Googleでサインイン",
         signInWithFacebook: "Facebookでサインイン",

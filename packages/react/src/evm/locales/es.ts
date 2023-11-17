@@ -200,6 +200,7 @@ export function esDefault(): ThirdwebLocale {
           resendCode: "Reenviar código de verificación",
         },
       },
+      pelagusWallet: extensionAndQRScanScreens("Pelagus"),
       embeddedWallet: {
         signInWithGoogle: "Iniciar sesión con Google",
         signInWithFacebook: "Iniciar sesión con Facebook",

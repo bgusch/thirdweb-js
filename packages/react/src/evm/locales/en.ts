@@ -196,6 +196,7 @@ export function enDefault() {
           resendCode: "Resend verification code",
         },
       },
+      pelagusWallet: extensionAndQRScanScreens("Pelagus"),
       embeddedWallet: {
         signInWithGoogle: "Sign in with Google",
         signInWithFacebook: "Sign in with Facebook",
