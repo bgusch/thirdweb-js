@@ -199,7 +199,7 @@ export function ThirdwebWalletProvider(
 
       const walletInfo: LastConnectedWalletInfo = {
         walletId: walletConfig.id,
-        connectParams,
+        connectParams: connectParams || wallet.getConnectParams(),
       };
 
       // if personal wallet exists, we need to replace the connectParams.personalWallet to a stringifiable version
@@ -335,7 +335,7 @@ export function ThirdwebWalletProvider(
               },
             );
           } catch (e) {
-            console.error("Failed to auto connect wallet");
+            console.error("Failed to auto connect personal wallet");
             console.error(e);
             setConnectionStatus("disconnected");
             return;
@@ -366,9 +366,14 @@ export function ThirdwebWalletProvider(
       } catch (e) {
         console.error("Failed to auto connect wallet");
         console.error(e);
-        lastConnectedWalletStorage.removeItem(
-          LAST_CONNECTED_WALLET_STORAGE_KEY,
-        );
+        if (
+          e instanceof Error &&
+          e.message === autoConnectTimeoutErrorMessage
+        ) {
+          lastConnectedWalletStorage.removeItem(
+            LAST_CONNECTED_WALLET_STORAGE_KEY,
+          );
+        }
         setConnectionStatus("disconnected");
       }
     }

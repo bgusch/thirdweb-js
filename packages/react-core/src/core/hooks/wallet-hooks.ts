@@ -3,17 +3,20 @@ import invariant from "tiny-invariant";
 import type {
   BloctoWallet,
   CoinbaseWallet,
+  CoreWallet,
   EmbeddedWallet,
   FrameWallet,
   LocalWallet,
   MagicLink,
   MetaMaskWallet,
-  PelagusWallet,
+  OKXWallet,
   PaperWallet,
+  PelagusWallet,
   PhantomWallet,
   RainbowWallet,
   SafeWallet,
   SmartWallet,
+  TokenBoundSmartWallet,
   TrustWallet,
   WalletConnect,
   walletIds,
@@ -24,21 +27,24 @@ export type WalletId = (typeof walletIds)[keyof typeof walletIds];
 
 type WalletIdToWalletTypeMap = {
   metamask: MetaMaskWallet;
-  pelagus: PelagusWallet;
   coinbase: CoinbaseWallet;
+  coreWallet: CoreWallet;
   rainbowWallet: RainbowWallet;
   blocto: BloctoWallet;
   frame: FrameWallet;
   localWallet: LocalWallet;
   magicLink: MagicLink;
   paper: PaperWallet;
+  pelagus: PelagusWallet;
   smartWallet: SmartWallet;
+  tokenBoundSmartWallet: TokenBoundSmartWallet;
   safe: SafeWallet;
   trust: TrustWallet;
   embeddedWallet: EmbeddedWallet;
   walletConnect: WalletConnect;
   phantom: PhantomWallet;
   walletConnectV1: WalletConnect;
+  okx: OKXWallet;
 };
 
 /**
