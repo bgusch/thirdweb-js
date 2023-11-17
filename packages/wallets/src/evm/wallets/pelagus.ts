@@ -14,7 +14,7 @@ type PelagusAdditionalOptions = {
   qrcode?: boolean;
 
   /**
-   * When connecting MetaMask using the QR Code - Wallet Connect connector is used which requires a project id.
+   * When connecting Pelagus using the QR Code - Wallet Connect connector is used which requires a project id.
    * This project id is Your project’s unique identifier for wallet connect that can be obtained at cloud.walletconnect.com.
    *
    * https://docs.walletconnect.com/2.0/web3modal/options#projectid-required
@@ -66,8 +66,8 @@ export class PelagusWallet extends AbstractClientWallet<PelagusAdditionalOptions
 
   protected async getConnector(): Promise<Connector> {
     if (!this.connector) {
-      // if metamask is injected, use the injected connector
-      // otherwise, use the wallet connect connector for using the metamask app on mobile via QR code scan
+      // if pelagus is injected, use the injected connector
+      // otherwise, use the wallet connect connector for using the pelagus app on mobile via QR code scan
 
       if (this.isInjected) {
         // import the connector dynamically
