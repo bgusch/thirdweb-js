@@ -7,7 +7,7 @@ import { PelagusConnectUI } from "./PelagusConnectUI";
 
 type PelagusWalletOptions = {
   /**
-   * When connecting MetaMask using the QR Code - Wallet Connect connector is used which requires a project id.
+   * When connecting Pelagus using the QR Code - Wallet Connect connector is used which requires a project id.
    * This project id is Your project’s unique identifier for wallet connect that can be obtained at cloud.walletconnect.com.
    *
    * https://docs.walletconnect.com/2.0/web3modal/options#projectid-required

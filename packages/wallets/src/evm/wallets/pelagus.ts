@@ -43,6 +43,8 @@ export class PelagusWallet extends AbstractClientWallet<PelagusAdditionalOptions
   pelagusConnector?: PelagusConnectorType;
   isInjected: boolean;
 
+  // see type WalletMeta
+  // need urls for firefox, android, ios, etc.
   static meta = {
     name: "Pelagus",
     iconURL:
@@ -66,8 +68,8 @@ export class PelagusWallet extends AbstractClientWallet<PelagusAdditionalOptions
 
   protected async getConnector(): Promise<Connector> {
     if (!this.connector) {
-      // if pelagus is injected, use the injected connector
-      // otherwise, use the wallet connect connector for using the pelagus app on mobile via QR code scan
+      // if Pelagus is injected, use the injected connector
+      // otherwise, use the wallet connect connector for using the Pelagus app on mobile via QR code scan
 
       if (this.isInjected) {
         // import the connector dynamically

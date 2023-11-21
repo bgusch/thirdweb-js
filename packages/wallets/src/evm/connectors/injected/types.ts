@@ -40,7 +40,7 @@ type InjectedProviderFlags = {
   isOneInchAndroidWallet?: true;
   isOneInchIOSWallet?: true;
   isOpera?: true;
-  isPelagus?:true;
+  isPelagus?: true;
   isPhantom?: true;
   isPortal?: true;
   isRainbow?: true;
@@ -81,9 +81,6 @@ export interface Ethereum extends InjectedProviders {
   request(args: { method: "eth_chainId" }): Promise<string>;
   request(args: { method: "eth_requestAccounts" }): Promise<string[]>;
 
-  request(args: { method: "quai_accounts" }): Promise<string[]>;
-  request(args: { method: "quai_chainId" }): Promise<string>;
-  request(args: { method: "quai_requestAccounts" }): Promise<string[]>;
   /**
    * EIP-1474: Remote procedure call specification
    * https://eips.ethereum.org/EIPS/eip-1474
@@ -102,14 +99,6 @@ export interface Ethereum extends InjectedProviders {
     ];
   }): Promise<WalletPermission[]>;
 
-  request(args: {
-    method: "wallet_requestPermissions";
-    params: [
-      {
-        quai_accounts: Record<string, any>;
-      },
-    ];
-  }): Promise<WalletPermission[]>;
 
   request(args: {
     method: "wallet_getPermissions";
