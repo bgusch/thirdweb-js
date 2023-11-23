@@ -151,11 +151,4 @@ export class PelagusWallet extends AbstractClientWallet<PelagusAdditionalOptions
     this.connect({ chainId: options.chainId }).then(options.onConnected);
   }
 
-  async switchAccount() {
-    if (!this.pelagusConnector) {
-      throw new Error("Can not switch Account");
-    }
-
-    await this.pelagusConnector.switchAccount();
-  }
 }

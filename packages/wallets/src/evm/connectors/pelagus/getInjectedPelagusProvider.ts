@@ -21,23 +21,8 @@ export function getInjectedPelagusProvider(): QEthereum | undefined {
     if ("request" in ethereum) {
       const origRequest = ethereum.request;
       ethereum.request = async function (args: any) {
-        if (args.method) {
-          if (args.method.indexOf('eth_') === 0) {
-            args.method = args.method.replace('eth_', 'quai_');
-          } else {
-            switch (args.method) {
-              case "wallet_requestPermissions":
-                if (Array.isArray(args.params)) {
-                  args.params.forEach((par: any) => {
-                    if (par.eth_accounts) {
-                      par.quai_accounts = par.eth_accounts
-                      delete par.eth_accounts
-                    }
-                  })
-                }
-                break;
-            }
-          }
+        if (args.method && args.method.indexOf('eth_') === 0) {
+          args.method = args.method.replace('eth_', 'quai_');
         }
         return origRequest(args);
       }

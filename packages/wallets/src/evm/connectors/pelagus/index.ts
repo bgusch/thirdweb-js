@@ -25,7 +25,6 @@ export class PelagusConnector extends InjectedConnector {
     const defaultOptions = {
       name: "Pelagus",
       shimDisconnect: true,
-      shimChainChangedDisconnect: true,
       getProvider: getInjectedPelagusProvider,
     };
 
@@ -57,47 +56,25 @@ export class PelagusConnector extends InjectedConnector {
       // emit "connecting" event
       this.emit("message", {type: "connecting"});
 
-      // Attempt to show wallet select prompt with `wallet_requestPermissions` when
-      // `shimDisconnect` is active and account is in disconnected state (flag in storage)
-      let account: string | null = null;
-      if (
-        this.options?.shimDisconnect &&
-        !Boolean(this.connectorStorage.getItem(this.shimDisconnectKey))
-      ) {
-        account = await this.getAccount().catch(() => null);
-        const isConnected = !!account;
-        if (isConnected) {
-          // Attempt to show another prompt for selecting wallet if already connected
-          try {
-            await provider.request({
-              method: "wallet_requestPermissions",
-              params: [{eth_accounts: {}}],
-            });
-          } catch (error) {
-            // Not all injected providers support `wallet_requestPermissions` (e.g. MetaMask iOS).
-            // Only bubble up error if user rejects request
-            if (this.isUserRejectedRequestError(error)) {
-              throw new UserRejectedRequestError(error);
-            }
-          }
-        }
-      }
+      // request account addresses from injected provider
+      const accountAddresses = await provider.request({
+        method: "eth_requestAccounts",
+      });
 
-      // if account is not already set, request accounts and use the first account
-      if (!account) {
-        const accounts = await provider.request({
-          method: "eth_requestAccounts",
-        });
-        account = utils.getAddress(accounts[0] as string);
-      }
+      // get the first account address
+      const firstAccountAddress = utils.getAddress(
+        accountAddresses[0] as string,
+      );
 
-      // get currently connected chainId
+      // Switch to given chain if a chainId is specified
       let connectedChainId = await this.getChainId();
-      // check if connected chain is unsupported
+      // Check if currently connected chain is unsupported
+      // chainId is considered unsupported if chainId is not in the list of this.chains array
       let isUnsupported = this.isChainUnsupported(connectedChainId);
 
-      // if chainId is given, but does not match the currently connected chainId, switch to the given chainId
+      // if chainId is specified and it is not the same as the currently connected chain
       if (options.chainId && connectedChainId !== options.chainId) {
+        // switch to the given chain
         try {
           await this.switchChain(options.chainId);
           // recalculate the chainId and isUnsupported
@@ -110,14 +87,14 @@ export class PelagusConnector extends InjectedConnector {
 
       // if shimDisconnect is enabled
       if (this.options?.shimDisconnect) {
-        // add shimDisconnectKey in storage - this signals that connector is "connected"
+        // add the shim shimDisconnectKey => it signals that wallet is connected
         await this.connectorStorage.setItem(this.shimDisconnectKey, "true");
       }
 
       const connectionInfo = {
-        chain: {id: connectedChainId, unsupported: isUnsupported},
-        provider: provider,
-        account,
+        account: firstAccountAddress,
+        chain: { id: connectedChainId, unsupported: isUnsupported },
+        provider,
       };
 
       this.emit("connect", connectionInfo);
@@ -131,14 +108,6 @@ export class PelagusConnector extends InjectedConnector {
       }
       throw error;
     }
-  }
-
-  async switchAccount() {
-    const provider = await this.getProvider();
-    await provider.request({
-      method: "wallet_requestPermissions",
-      params: [{eth_accounts: {}}],
-    });
   }
 
 }
