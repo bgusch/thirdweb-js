@@ -36,6 +36,9 @@ export function getInjectedName(ethereum?: Ethereum) {
     if (provider.isOpera) {
       return "Opera";
     }
+    if (provider.isPelagus) {
+      return "Pelagus";
+    }
     if (provider.isPortal) {
       return "Ripio Portal";
     }
