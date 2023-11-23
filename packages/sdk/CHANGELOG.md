@@ -1,5 +1,35 @@
 # @thirdweb-dev/sdk
 
+## 4.0.17
+
+### Patch Changes
+
+- Updated dependencies [[`47b0ed51`](https://github.com/thirdweb-dev/js/commit/47b0ed5171be5608ae23c19481a1b04948443c6a), [`d4ce855e`](https://github.com/thirdweb-dev/js/commit/d4ce855e5f5e6c4206a3efa250e92e690ae87281)]:
+  - @thirdweb-dev/chains@0.1.59
+
+## 4.0.16
+
+### Patch Changes
+
+- [#1974](https://github.com/thirdweb-dev/js/pull/1974) [`7c45941b`](https://github.com/thirdweb-dev/js/commit/7c45941b57fb5a6f83be507ee64dbf885d93c9d4) Thanks [@adam-maj](https://github.com/adam-maj)! - Add support for new relayer and polygon relayer
+
+## 4.0.15
+
+### Patch Changes
+
+- [#1935](https://github.com/thirdweb-dev/js/pull/1935) [`e43beec3`](https://github.com/thirdweb-dev/js/commit/e43beec36a569211b6fe708107aa7dc04bff08ec) Thanks [@kumaryash90](https://github.com/kumaryash90)! - Resolve diamond pattern facets ABIs
+
+## 4.0.14
+
+### Patch Changes
+
+- [#1861](https://github.com/thirdweb-dev/js/pull/1861) [`ab2dfd4f`](https://github.com/thirdweb-dev/js/commit/ab2dfd4f5cf4256fa62d76f84ca804992afab1e4) Thanks [@jnsdls](https://github.com/jnsdls)! - remove `crypto-js` dependency
+
+- Updated dependencies [[`ab2dfd4f`](https://github.com/thirdweb-dev/js/commit/ab2dfd4f5cf4256fa62d76f84ca804992afab1e4), [`ab2dfd4f`](https://github.com/thirdweb-dev/js/commit/ab2dfd4f5cf4256fa62d76f84ca804992afab1e4)]:
+  - @thirdweb-dev/crypto@0.2.0
+  - @thirdweb-dev/merkletree@0.2.0
+  - @thirdweb-dev/storage@2.0.5
+
 ## 4.0.13
 
 ### Patch Changes

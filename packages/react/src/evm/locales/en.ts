@@ -168,6 +168,8 @@ export function enDefault() {
       trustWallet: extensionAndQRScanScreens("Trust"),
       zerionWallet: extensionAndQRScanScreens("Zerion"),
       coreWallet: extensionAndQRScanScreens("Core"),
+      rabbyWallet: extensionAndQRScanScreens("Rabby"),
+      coin98Wallet: extensionAndQRScanScreens("Coin98"),
       paperWallet: {
         signIn: "Sign in",
         signInWithGoogle: "Sign in with Google",

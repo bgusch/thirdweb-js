@@ -1,5 +1,42 @@
 # @thirdweb-dev/auth
 
+## 4.1.12
+
+### Patch Changes
+
+- Updated dependencies [[`b5bbe2bd`](https://github.com/thirdweb-dev/js/commit/b5bbe2bd438179c38451bc2cfa20a54fc79e4f3a)]:
+  - @thirdweb-dev/wallets@2.1.9
+
+## 4.1.11
+
+### Patch Changes
+
+- [#1973](https://github.com/thirdweb-dev/js/pull/1973) [`36600dec`](https://github.com/thirdweb-dev/js/commit/36600decefca7b9ebb1924757b4186b559e439f6) Thanks [@assimovt](https://github.com/assimovt)! - add logging to authenticate
+
+- Updated dependencies [[`1094a03a`](https://github.com/thirdweb-dev/js/commit/1094a03a04f3e7ade84af0f7a6073794c0904cb1)]:
+  - @thirdweb-dev/wallets@2.1.8
+
+## 4.1.10
+
+### Patch Changes
+
+- Updated dependencies [[`6832b19f`](https://github.com/thirdweb-dev/js/commit/6832b19fc5eedc7c17e69940a361840de0a84881), [`7abb36a7`](https://github.com/thirdweb-dev/js/commit/7abb36a7ec39766dd7da03015ccef401ef7a7863), [`1c4cbedb`](https://github.com/thirdweb-dev/js/commit/1c4cbedb6a3c9f9014ffbf83c02b998768958d96)]:
+  - @thirdweb-dev/wallets@2.1.7
+
+## 4.1.9
+
+### Patch Changes
+
+- Updated dependencies [[`ab2dfd4f`](https://github.com/thirdweb-dev/js/commit/ab2dfd4f5cf4256fa62d76f84ca804992afab1e4)]:
+  - @thirdweb-dev/wallets@2.1.6
+
+## 4.1.8
+
+### Patch Changes
+
+- Updated dependencies [[`69d68f5a`](https://github.com/thirdweb-dev/js/commit/69d68f5a25877bf5ea694719d2cf4ca8388f3091)]:
+  - @thirdweb-dev/wallets@2.1.5
+
 ## 4.1.7
 
 ### Patch Changes

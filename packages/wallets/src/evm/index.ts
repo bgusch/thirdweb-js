@@ -54,6 +54,11 @@ export { getInjectedOKXProvider } from "./connectors/okx/getInjectedOKXProvider"
 export { CoreWallet, type CoreWalletOptions } from "./wallets/core-wallet";
 export { getInjectedCoreWalletProvider } from "./connectors/core-wallet/getInjectedCoreWalletProvider";
 
+export { RabbyWallet, type RabbyOptions } from "./wallets/rabby";
+export { getInjectedRabbyProvider } from "./connectors/rabby/getInjectedRabbyProvider";
+export { Coin98Wallet, type Coin98Options } from "./wallets/coin98";
+export { getInjectedCoin98Provider } from "./connectors/coin98/getInjectedCoin98Provider";
+
 export type { Chain } from "@thirdweb-dev/chains";
 
 // export the window ethereum util
