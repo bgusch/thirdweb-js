@@ -5,7 +5,7 @@ import {
 } from "@thirdweb-dev/wallets";
 import { PelagusConnectUI } from "./PelagusConnectUI";
 
-type PelagusWalletOptions = {
+export type PelagusWalletConfigOptions = {
   /**
    * When connecting Pelagus using the QR Code - Wallet Connect connector is used which requires a project id.
    * This project id is Your project’s unique identifier for wallet connect that can be obtained at cloud.walletconnect.com.
@@ -21,7 +21,7 @@ type PelagusWalletOptions = {
 };
 
 export const pelagusWallet = (
-  options?: PelagusWalletOptions,
+  options?: PelagusWalletConfigOptions,
 ): WalletConfig<PelagusWallet> => {
   return {
     id: PelagusWallet.id,

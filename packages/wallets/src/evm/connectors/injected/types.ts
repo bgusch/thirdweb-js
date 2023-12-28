@@ -53,6 +53,8 @@ type InjectedProviderFlags = {
   isZerion?: true;
   isOkxWallet?: true;
   isCoreWallet?: true;
+  isOneKey?: true;
+  isDefiWallet?: true;
   isRabbyWallet?: true;
   isCoin98Wallet?: true;
 };

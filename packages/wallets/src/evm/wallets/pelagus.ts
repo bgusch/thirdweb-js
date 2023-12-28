@@ -44,7 +44,7 @@ export class PelagusWallet extends AbstractClientWallet<PelagusAdditionalOptions
   isInjected: boolean;
 
   // see type WalletMeta
-  // need urls for firefox, android, ios, etc.
+  // TODO need urls for firefox, android, ios, etc.
   static meta = {
     name: "Pelagus",
     iconURL:
